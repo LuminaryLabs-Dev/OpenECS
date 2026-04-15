@@ -1,0 +1,15 @@
+{
+  "name": "openecs-demo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "openecs-js": "file:../openecs-js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,41 @@
+# Node dependencies
+node_modules/
+**/node_modules/
+
+# Build outputs
+dist/
+build/
+coverage/
+**/dist/
+**/build/
+**/coverage/
+
+# Package manager state
+.npm/
+.pnpm-store/
+.yarn/
+.yarn-cache/
+.yarn/install-state.gz
+.yarn/unplugged/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Editor and OS files
+.DS_Store
+Thumbs.db
+
+# Tool caches
+.cache/
+.parcel-cache/
+.vite/
+*.tsbuildinfo
