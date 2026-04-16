@@ -5,6 +5,7 @@ If you are an AI agent or automated coder, read `AGENT.md` first.
 ## Repo Map for Tools
 
 - `openecs-js/` is the only public runtime package and the runtime source of truth.
+- `openecs-gamekit/` is the opinionated gameplay and scene toolkit built on top of `openecs-js`.
 - `openecs-demo/` is an example consumer, not the API definition.
 - `openecs-docs/` contains supporting documentation and notes.
 
@@ -18,5 +19,6 @@ If you are an AI agent or automated coder, read `AGENT.md` first.
 ## Repo Layout
 
 - `openecs-js/` - the importable ECS runtime package
+- `openecs-gamekit/` - the higher-level GameKit package with default gameplay and scene systems
 - `openecs-demo/` - the browser demo that uses the runtime
 - `openecs-docs/` - repo documentation and notes
