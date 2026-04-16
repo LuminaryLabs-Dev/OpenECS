@@ -1,6 +1,24 @@
 # openecs-js
 
+If you are an AI agent or automated coder, read `AGENT.md` and `WEBAGENT.md` before making changes.
+
 `openecs-js` is a small JavaScript ECS runtime with enough runtime structure to build gameplay slices directly in Node.
+
+## GitHub CDN Import
+
+If you want to use this package from another project without installing it through npm, import the ESM source from a GitHub-backed CDN.
+
+Recommended form:
+
+```js
+import {
+  createWorld,
+  createScheduler,
+  defineComponent
+} from "https://cdn.jsdelivr.net/gh/LuminaryLabs-Dev/OpenECS@main/openecs-js/src/index.js";
+```
+
+Prefer a tagged release or commit SHA instead of `@main` when you need a stable dependency.
 
 ## Current shape
 
