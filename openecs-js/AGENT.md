@@ -18,11 +18,13 @@ This file is for AI coding agents working in `openecs-js`.
 - Do not invent build, publish, or CDN support that is not already present.
 - If public imports or exports change, update the README example and package metadata together.
 - Prefer small, composable changes that preserve current consumers.
+- Verify generated code against the exported symbols in `src/index.js` before claiming support for an API or import path.
 
 ## Validation
 - Prefer CLI-based checks and direct file inspection.
 - Confirm package entrypoints and export targets when packaging behavior changes.
 - Do not use smoke tests or unit tests unless explicitly asked.
+- If a symbol or file path is not present in `src/index.js` or `package.json`, do not present it as supported.
 
 ## Documentation Rule
 - If the package becomes browser-ready or CDN-ready later, document the exact supported path instead of implying one.

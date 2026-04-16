@@ -2,7 +2,57 @@
 
 If you are an AI agent or automated coder, read `AGENT.md` and `WEBAGENT.md` before making changes.
 
-`openecs-js` is a small JavaScript ECS runtime with enough runtime structure to build gameplay slices directly in Node.
+`openecs-js` is a small JavaScript ECS runtime that exports functions from `openecs-js/src/index.js`.
+
+If docs and generated code disagree, trust the exported symbols in `openecs-js/src/index.js`.
+
+## Quick Truth
+
+- This package exports functions, not a `World` class.
+- Primary entrypoint: `openecs-js/src/index.js`
+- Supported import forms: local package import and direct ESM CDN import
+- Not provided: `openecs.js` bundle, Three.js adapter, engine framework, npm-published browser bundle
+
+## Actual API Surface
+
+```js
+import {
+  DEFAULT_PHASES,
+  createCollisionSystem,
+  createDamageSystem,
+  createDeathSystem,
+  createDespawnSystem,
+  createInputSystem,
+  createMovementSystem,
+  createScheduler,
+  createWorld,
+  defineComponent,
+  defineEvent,
+  defineResource
+} from "openecs-js";
+```
+
+## Do Not Assume
+
+- No `new World()`
+- No `world.createEntity()`
+- No `entity.addComponent()`
+- No `world.update(dt)`
+- No `openecs-js/openecs.js`
+
+## Browser/CDN Usage
+
+Supported now:
+
+- Direct ESM import from `openecs-js/src/index.js`
+- GitHub-backed CDN import of that ESM file
+
+Unsupported now:
+
+- Dedicated browser build
+- UMD or IIFE bundle
+- Official Three.js adapter
+- Official game framework layer
 
 ## GitHub CDN Import
 
@@ -20,7 +70,7 @@ import {
 
 Prefer a tagged release or commit SHA instead of `@main` when you need a stable dependency.
 
-## Current shape
+## Current Shape
 
 - Entities are numeric ids.
 - Components hold entity-scoped state.
@@ -29,7 +79,7 @@ Prefer a tagged release or commit SHA instead of `@main` when you need a stable 
 - Systems run in ordered scheduler phases.
 - Policies let one system builder behave differently across demos or game modes.
 
-## Example
+## Minimal Complete Example
 
 ```js
 import {

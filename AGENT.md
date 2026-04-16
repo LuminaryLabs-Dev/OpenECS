@@ -8,6 +8,7 @@ This file is for AI agents working anywhere in the OpenECS repository.
 - Prefer additive changes over replacement.
 - Keep runtime, demo, and docs boundaries clear.
 - Do not invent build, publish, or CDN support that is not already present.
+- Verify generated code against the actual exports in `openecs-js/src/index.js` before claiming an integration works.
 
 ## Routing
 
@@ -20,4 +21,4 @@ This file is for AI agents working anywhere in the OpenECS repository.
 - Prefer CLI-based checks and direct file inspection.
 - Update docs when public imports, exports, or usage expectations change.
 - Do not use smoke tests or unit tests unless explicitly asked.
-
+- If generated code names symbols that are not exported from `openecs-js/src/index.js`, treat the code as incorrect.
