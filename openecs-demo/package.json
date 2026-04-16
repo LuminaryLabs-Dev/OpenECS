@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "python3 -m http.server 4173"
   },
   "dependencies": {
     "openecs-js": "file:../openecs-js"
