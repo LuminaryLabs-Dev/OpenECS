@@ -3,7 +3,7 @@ import {
   createWorld,
   defineComponent,
   defineResource
-} from "https://cdn.jsdelivr.net/gh/LuminaryLabs-Dev/OpenECS@main/openecs-js/src/index.js";
+} from "openecs-js";
 
 import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js";
 

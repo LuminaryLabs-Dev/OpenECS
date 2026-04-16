@@ -4,7 +4,7 @@ If you are an AI agent or automated coder, read `AGENT.md` first.
 
 ## Repo Map for Tools
 
-- `openecs-js/` is the runtime source of truth.
+- `openecs-js/` is the only public runtime package and the runtime source of truth.
 - `openecs-demo/` is an example consumer, not the API definition.
 - `openecs-docs/` contains supporting documentation and notes.
 

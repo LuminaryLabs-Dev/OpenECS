@@ -3,12 +3,24 @@
   "version": "0.1.0",
   "description": "A minimal importable OpenECS JavaScript runtime.",
   "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
   "exports": {
-    ".": "./src/index.js"
+    ".": "./dist/index.js"
   },
+  "jsdelivr": "./dist/index.js",
+  "unpkg": "./dist/index.js",
   "files": [
-    "src"
+    "dist",
+    "src",
+    "README.md",
+    "AGENT.md",
+    "WEBAGENT.md"
   ],
+  "scripts": {
+    "build": "node ./scripts/build.mjs",
+    "prepublishOnly": "npm run build"
+  },
   "engines": {
     "node": ">=18"
   },

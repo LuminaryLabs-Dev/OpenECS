@@ -2,14 +2,15 @@
 
 If you are an AI agent or automated coder, read `AGENT.md` and `WEBAGENT.md` before making changes.
 
-`openecs-js` is a small JavaScript ECS runtime that exports functions from `openecs-js/src/index.js`.
+`openecs-js` is a small JavaScript ECS runtime that exports functions from `openecs-js/dist/index.js`.
 
 If docs and generated code disagree, trust the exported symbols in `openecs-js/src/index.js`.
 
 ## Quick Truth
 
 - This package exports functions, not a `World` class.
-- Primary entrypoint: `openecs-js/src/index.js`
+- Primary published entrypoint: `openecs-js/dist/index.js`
+- Source of truth: `openecs-js/src/index.js`
 - Supported import forms: local package import and direct ESM CDN import
 - Not provided: `openecs.js` bundle, Three.js adapter, engine framework, npm-published browser bundle
 
@@ -44,7 +45,8 @@ import {
 
 Supported now:
 
-- Direct ESM import from `openecs-js/src/index.js`
+- Local package import from `openecs-js`
+- Direct ESM import from `openecs-js/dist/index.js`
 - GitHub-backed CDN import of that ESM file
 
 Unsupported now:
@@ -56,19 +58,47 @@ Unsupported now:
 
 ## GitHub CDN Import
 
-If you want to use this package from another project without installing it through npm, import the ESM source from a GitHub-backed CDN.
+If you want to use this package from another project without installing it through npm, import the built ESM entry from a GitHub-backed CDN.
 
-Recommended form:
+Development form:
 
 ```js
 import {
   createWorld,
   createScheduler,
   defineComponent
-} from "https://cdn.jsdelivr.net/gh/LuminaryLabs-Dev/OpenECS@main/openecs-js/src/index.js";
+} from "https://cdn.jsdelivr.net/gh/LuminaryLabs-Dev/OpenECS@main/openecs-js/dist/index.js";
 ```
 
+Stable form once releases exist:
+
+Replace `@main` with a Git tag or commit SHA after you publish releases.
+
 Prefer a tagged release or commit SHA instead of `@main` when you need a stable dependency.
+
+## Install and Release Paths
+
+Local workspace consumer:
+
+```json
+{
+  "dependencies": {
+    "openecs-js": "file:../openecs-js"
+  }
+}
+```
+
+Package import:
+
+```js
+import { createWorld, createScheduler } from "openecs-js";
+```
+
+npm and CDN consumer once published:
+
+```js
+import { createWorld, createScheduler } from "openecs-js";
+```
 
 ## Current Shape
 
@@ -76,7 +106,7 @@ Prefer a tagged release or commit SHA instead of `@main` when you need a stable 
 - Components hold entity-scoped state.
 - Resources hold world-scoped state.
 - Events carry transient tick-scoped facts.
-- Systems run in ordered scheduler phases.
+- Systems run in ordered scheduler phases: `input`, `simulate`, `resolve`, `cleanup`.
 - Policies let one system builder behave differently across demos or game modes.
 
 ## Minimal Complete Example
