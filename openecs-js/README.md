@@ -76,6 +76,22 @@ Replace `@main` with a Git tag or commit SHA after you publish releases.
 
 Prefer a tagged release or commit SHA instead of `@main` when you need a stable dependency.
 
+## Local NexusArcade Import
+
+NexusArcade serves the local dist file through its Vite vendor bridge while developing games:
+
+```html
+<script type="importmap">
+  {
+    "imports": {
+      "openecs-js": "/vendor/openecs-js/dist/index.js"
+    }
+  }
+</script>
+```
+
+Run `npm run build` in `openecs-js/` before validating a browser consumer.
+
 ## Install and Release Paths
 
 Local workspace consumer:

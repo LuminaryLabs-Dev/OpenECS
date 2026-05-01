@@ -14,8 +14,12 @@ It is intentionally separate from the core runtime. `openecs-js` stays small and
 
 ```js
 import {
+  ARCADE_SYSTEM_SPECS,
   GAMEKIT_SYSTEM_SPECS,
   createAnchorSystem,
+  createArcadeDefinitions,
+  createArcadeManifest,
+  createArcadeRuntime,
   createBillboardSystem,
   createCinemaSystem,
   createControlSystem,
@@ -25,7 +29,9 @@ import {
   createRenderSyncSystem,
   createSkyboxSystem,
   createSpawnSystem,
+  createThreeSceneAdapter,
   createVelocitySystem,
+  registerArcadeSystems,
   registerDefaultGameKitSystems
 } from "openecs-gamekit";
 ```
@@ -111,3 +117,33 @@ scheduler.run(world);
 - `GameKit` is mixed render plus gameplay, with render-heavy bias.
 - AI, quests, dialogue, save/load, and narrative systems are not default systems.
 - Those higher-order systems should be optional extension modules, not part of the baseline 10.
+
+## Arcade Layer
+
+The arcade layer is additive on top of the baseline GameKit systems. It is intended for small longform browser arcade games that need a 10-minute loop with little per-game code.
+
+Main entrypoints:
+
+```js
+import {
+  createArcadeRuntime,
+  createThreeSceneAdapter,
+  createArcadeManifest
+} from "openecs-gamekit";
+```
+
+The arcade runtime provides definitions and systems for input, kinematic movement, collision, collection, health/damage, objectives, scoring, spawn pressure, difficulty, camera, render sync, UI state, audio cues, lifetime, and despawn.
+
+Local browser import map:
+
+```html
+<script type="importmap">
+  {
+    "imports": {
+      "openecs-js": "/vendor/openecs-js/dist/index.js",
+      "openecs-gamekit": "/vendor/openecs-gamekit/dist/index.js",
+      "three": "https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js"
+    }
+  }
+</script>
+```

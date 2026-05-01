@@ -9,6 +9,28 @@ If you are an AI agent or automated coder, read `AGENT.md` first.
 - `openecs-demo/` is an example consumer, not the API definition.
 - `openecs-docs/` contains supporting documentation and notes.
 
+## Local Browser Consumption
+
+The current browser-ready local paths are plain ESM files:
+
+- `/openecs-js/dist/index.js`
+- `/openecs-gamekit/dist/index.js`
+
+Sibling consumers such as NexusArcade should serve those files through an import map:
+
+```html
+<script type="importmap">
+  {
+    "imports": {
+      "openecs-js": "/vendor/openecs-js/dist/index.js",
+      "openecs-gamekit": "/vendor/openecs-gamekit/dist/index.js"
+    }
+  }
+</script>
+```
+
+Future public CDN usage should pin a tag or commit SHA with jsDelivr instead of importing from `@main`.
+
 ## For AI and Codegen Tools
 
 - Read `AGENT.md` first.

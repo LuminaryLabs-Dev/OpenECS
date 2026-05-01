@@ -18,6 +18,7 @@ This file is for agents focused on browser, CDN, or web-import consumption.
 - Prefer jsDelivr or an equivalent CDN over raw GitHub URLs.
 - Use a version tag or commit SHA for stable imports; `@main` is only for live development.
 - Document the exact import string in the README so another project can copy it directly.
+- For local sibling-browser work, use an import map that points at served `dist/index.js` files instead of raw source files.
 
 ## Validation
 - Prefer direct import-path and artifact checks over assumptions.
