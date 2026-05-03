@@ -1331,7 +1331,7 @@ export function createArcadeRuntime(options = {}) {
   world.setResource(definitions.TerrainState, options.terrain ?? {});
   world.setResource(definitions.LightingState, options.lighting ?? {});
   world.setResource(definitions.AtmosphereState, options.atmosphere ?? {});
-  world.setResource(definitions.RenderTheme, options.theme ?? {});
+  world.setResource(definitions.RenderTheme, options.theme ? { theme: options.theme } : {});
   world.setResource(definitions.ChunkRegistry, { chunks: new Map() });
   world.setResource(definitions.SceneryRegistry, { spawned: new Set(), objects: [] });
 
