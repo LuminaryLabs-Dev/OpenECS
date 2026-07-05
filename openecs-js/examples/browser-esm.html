@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OpenECS Browser ESM Validation</title>
+  </head>
+  <body>
+    <pre id="result">loading</pre>
+    <script type="module">
+      import {
+        createScheduler,
+        createWorld,
+        defineComponent
+      } from "../dist/index.js";
+
+      const Position = defineComponent("position");
+      const world = createWorld();
+      const scheduler = createScheduler();
+      const entity = world.addEntity();
+
+      world.setComponent(entity, Position, { x: 1 });
+      scheduler.run(world);
+
+      document.getElementById("result").textContent = JSON.stringify({
+        ok: world.hasEntity(entity),
+        phases: scheduler.phases,
+        position: world.getComponent(entity, Position)
+      });
+    </script>
+  </body>
+</html>

@@ -10,6 +10,12 @@ coverage/
 **/build/
 **/coverage/
 
+# Public ESM entrypoints are part of this beginner/static example repo.
+!openecs-js/dist/
+!openecs-js/dist/index.js
+!openecs-gamekit/dist/
+!openecs-gamekit/dist/index.js
+
 # Package manager state
 .npm/
 .pnpm-store/

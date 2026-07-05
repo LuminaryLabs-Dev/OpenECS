@@ -91,9 +91,10 @@ The runnable demo should prove a top-down gameplay core:
 - collision-generated damage
 - death events and cleanup-driven despawn
 
-## Next growth path
+## v0.2 core hardening path
 
-1. Add optional component schemas and defaults.
-2. Add snapshots and restore support.
-3. Add richer schedule control such as run conditions or before/after constraints.
-4. Swap storage internals later if archetypes or sparse sets become necessary.
+1. Keep `openecs-js` as the pure core and keep render/game opinions in `openecs-gamekit`.
+2. Add generation-aware entity handles, indexed query planning, richer query descriptors, command buffers, event lifecycle controls, snapshots, and diagnostics.
+3. Keep gameplay factory helpers as compatibility exports in `openecs-js`, but prefer `openecs-gamekit` for new gameplay-facing imports.
+4. Validate through focused CLI scenario scripts and benchmarks rather than broad smoke or unit tests.
+5. Revisit archetype/table storage only after sparse component stores and query planning have measurable limits.

@@ -4,6 +4,12 @@
 
 It is intentionally separate from the core runtime. `openecs-js` stays small and stable as the ECS foundation. `openecs-gamekit` adds opinionated defaults for camera, lighting, sky, render sync, and common gameplay scaffolding.
 
+## Beginner Role
+
+Read this after `openecs-js/README.md`.
+
+`openecs-gamekit` shows how to layer reusable systems on top of a pure ECS core. It is where camera, light, sky, render sync, collision, movement, and arcade loop examples can live without making the core runtime depend on Three.js or browser APIs.
+
 ## Positioning
 
 - `openecs-js/` is the core runtime.
@@ -22,10 +28,16 @@ import {
   createArcadeRuntime,
   createBillboardSystem,
   createCinemaSystem,
+  createCollisionSystem,
   createControlSystem,
+  createDamageSystem,
+  createDeathSystem,
+  createDespawnSystem,
   createGameKitDefinitions,
+  createInputSystem,
   createLifetimeSystem,
   createLightSystem,
+  createMovementSystem,
   createRenderSyncSystem,
   createSkyboxSystem,
   createSpawnSystem,
@@ -115,6 +127,7 @@ scheduler.run(world);
 ## Design Notes
 
 - `GameKit` is mixed render plus gameplay, with render-heavy bias.
+- Gameplay factory helpers such as `createMovementSystem` and `createCollisionSystem` are exported here as the long-term gameplay-layer home.
 - AI, quests, dialogue, save/load, and narrative systems are not default systems.
 - Those higher-order systems should be optional extension modules, not part of the baseline 10.
 

@@ -1,3 +1,4 @@
+// Generated from src/index.js by scripts/build.mjs
 const DEFAULT_PHASES = Object.freeze(["input", "simulate", "resolve", "cleanup"]);
 const ENTITY_GENERATION_FACTOR = 1_000_000_000;
 const SNAPSHOT_VERSION = 1;

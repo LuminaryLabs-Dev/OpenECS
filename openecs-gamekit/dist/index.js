@@ -1,3 +1,4 @@
+// Generated from src/index.js by scripts/build.mjs
 import {
   createCollisionSystem,
   createDamageSystem,

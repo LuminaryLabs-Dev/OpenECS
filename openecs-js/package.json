@@ -1,6 +1,6 @@
 {
   "name": "openecs-js",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A minimal importable OpenECS JavaScript runtime.",
   "type": "module",
   "main": "./dist/index.js",
@@ -12,6 +12,7 @@
   "unpkg": "./dist/index.js",
   "files": [
     "dist",
+    "examples",
     "src",
     "README.md",
     "AGENT.md",
@@ -19,6 +20,8 @@
   ],
   "scripts": {
     "build": "node ./scripts/build.mjs",
+    "validate": "npm run build && node ./scripts/validate-core.mjs",
+    "bench": "npm run build && node ./scripts/bench-core.mjs",
     "prepublishOnly": "npm run build"
   },
   "engines": {
